@@ -1,2 +1,6 @@
 # generated files
 *.txt
+
+# vscode
+.vscode
+__pycache__
