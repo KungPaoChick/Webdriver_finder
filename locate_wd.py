@@ -3,11 +3,6 @@ import os, colorama, platform
 
 class Process():
 
-    def identify_os(self):
-        os = platform.system()
-        return os
-
-
     def write_into_file(self, paths):
         with open('Results.txt', 'w') as f:
             for path in paths:
@@ -27,6 +22,7 @@ class Process():
             driver_name = driver_name + '.exe'
 
         for root, dirs, files in os.walk(os.getcwd()):
+            dirs = dirs
             for file in files:
                 if file == driver_name:
                     results.append(os.path.join(root, driver_name))
@@ -45,6 +41,11 @@ class Process():
             return Process().write_into_file(results)
 
 
+    def identify_os(self):
+        os = platform.system()
+        return os
+
+
 if __name__ == '__main__':
     origin = os.getcwd()
     colorama.init()
@@ -59,5 +60,4 @@ if __name__ == '__main__':
     elif webdriver in webdrivers:
         Process().find_webdriver(webdriver)
     else:
-        raise ValueError(colorama.Fore.RED,
-                            '[!!] Invalid Option.', colorama.Style.RESET_ALL)
+        raise ValueError(colorama.Fore.RED, '[!!] Invalid Option.', colorama.Style.RESET_ALL)
