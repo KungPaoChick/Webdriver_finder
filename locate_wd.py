@@ -8,6 +8,9 @@ class Process():
             for path in paths:
                 f.write(f'{path}\n')
 
+        print(colorama.Fore.YELLOW,
+              f'Total of {len(paths)} paths found.', colorama.Style.RESET_ALL)
+
 
     def local_dir(self):
         os.chdir(origin)
