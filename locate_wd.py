@@ -63,4 +63,4 @@ if __name__ == '__main__':
     elif webdriver in webdrivers:
         Process().find_webdriver(webdriver)
     else:
-        raise ValueError(colorama.Fore.RED, '[!!] Invalid Option.', colorama.Style.RESET_ALL)
+        raise ValueError('[!!] Invalid Option.')
