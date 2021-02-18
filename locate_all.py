@@ -9,7 +9,7 @@ class Process():
                 f.write(f'{path}\n')
 
         print(colorama.Fore.YELLOW,
-              f'Total of {len(paths)} path{Process().plural_s(len(paths))} found for {webdriver.capitalize()}.',
+              f'Total of {len(paths)} path{Process().plural_s(len(paths))} found for {webdriver.capitalize()}.\n',
               colorama.Style.RESET_ALL)
 
 
@@ -64,7 +64,7 @@ if __name__ == '__main__':
         'safari' : 'safaridriver',
         'opera' : 'operadriver'
     }
-    
+
     for webdriver in webdrivers:
         results = []
         Process().find_webdriver(webdrivers[webdriver])
