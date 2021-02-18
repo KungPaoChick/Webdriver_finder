@@ -9,7 +9,8 @@ class Process():
                 f.write(f'{path}\n')
 
         print(colorama.Fore.YELLOW,
-              f'Total of {len(paths)} paths found.', colorama.Style.RESET_ALL)
+              f'Total of {len(paths)} path{plural_s(len(paths))} found.',
+              colorama.Style.RESET_ALL)
 
 
     def local_dir(self):
