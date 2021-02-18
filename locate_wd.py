@@ -9,7 +9,7 @@ class Process():
                 f.write(f'{path}\n')
 
         print(colorama.Fore.YELLOW,
-              f'Total of {len(paths)} path{plural_s(len(paths))} found.',
+              f'Total of {len(paths)} path{Process().plural_s(len(paths))} found.',
               colorama.Style.RESET_ALL)
 
 
@@ -50,7 +50,7 @@ class Process():
         return os
 
 
-    def plural_s(v):
+    def plural_s(self, v):
         return 's' if abs(v) != 1 else ''
 
 
