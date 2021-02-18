@@ -58,14 +58,18 @@ if __name__ == '__main__':
     origin = os.getcwd()
     colorama.init()
     results = []
-    webdrivers = ['chromedriver',
-                  'msedgedriver',
-                  'geckodriver']
-    webdriver = input('Enter the name of the Webdriver you want to locate inside your system: ')
+    webdrivers = {
+        'chrome' : 'chromedriver',
+        'edge' : 'msedgedriver',
+        'firefox' : 'geckodriver',
+        'safari' : 'safaridriver',
+        'opera' : 'operadriver'
+    }
+    webdriver = input("Enter the name of the Web Browser to locate the required WebDriver: ")
 
     if webdriver == 'q':
         quit()
-    elif webdriver in webdrivers:
-        Process().find_webdriver(webdriver)
+    elif webdriver.casefold() in webdrivers:
+        Process().find_webdriver(webdrivers[webdriver.casefold()])
     else:
         raise ValueError('[!!] Invalid Option.')
