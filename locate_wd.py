@@ -27,13 +27,14 @@ class Process():
 
         for root, dirs, files in os.walk(os.getcwd()):
             dirs = dirs
-            if driver_name in files:
-                results.append(os.path.join(root, driver_name))
-                print(colorama.Fore.GREEN,
-                        f"[*] '{driver_name}' Found in: {os.path.join(root, driver_name)}",
-                        colorama.Style.RESET_ALL)
-            else:
-                continue
+            for file in files:
+                if file == driver_name:
+                    results.append(os.path.join(root, driver_name))
+                    print(colorama.Fore.GREEN,
+                            f"[*] '{driver_name}' Found in: {os.path.join(root, driver_name)}",
+                            colorama.Style.RESET_ALL)
+                else:
+                    continue
 
         if results == []:
             print(colorama.Fore.RED,
