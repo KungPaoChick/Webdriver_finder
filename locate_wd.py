@@ -23,18 +23,17 @@ class Process():
 
         # Windows Support as well lmao
         if Process().identify_os() == 'Windows':
-            driver_name = driver_name + '.exe'
+            driver_name += '.exe'
 
         for root, dirs, files in os.walk(os.getcwd()):
             dirs = dirs
-            for file in files:
-                if file == driver_name:
-                    results.append(os.path.join(root, driver_name))
-                    print(colorama.Fore.GREEN,
-                            f"[*] '{driver_name}' Found in: {os.path.join(root, driver_name)}",
-                            colorama.Style.RESET_ALL)
-                else:
-                    continue
+            if driver_name in files:
+                results.append(os.path.join(root, driver_name))
+                print(colorama.Fore.GREEN,
+                        f"[*] '{driver_name}' Found in: {os.path.join(root, driver_name)}",
+                        colorama.Style.RESET_ALL)
+            else:
+                continue
 
         if results == []:
             print(colorama.Fore.RED,
