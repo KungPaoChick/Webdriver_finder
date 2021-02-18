@@ -49,6 +49,10 @@ class Process():
         return os
 
 
+    def plural_s(v):
+        return 's' if abs(v) != 1 else ''
+
+
 if __name__ == '__main__':
     origin = os.getcwd()
     colorama.init()
